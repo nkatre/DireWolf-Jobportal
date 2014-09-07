@@ -10,7 +10,7 @@ Ruby version	1.9.3-p545 (i386-mingw32)
 RubyGems version	1.8.28
 Rack version	1.5
 Rails version	4.1.1
-JavaScript Runtime	JScript
+JavaScript Runtime	Node.js (V8)
 Active Record version	4.1.1
 Action Pack version	4.1.1
 Action View version	4.1.1

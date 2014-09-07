@@ -7,6 +7,12 @@
       <jdbc-url>jdbc:sqlite:E:\RailsProject\jobportal\db\development.sqlite3</jdbc-url>
       <libraries />
     </data-source>
+    <data-source source="LOCAL" name="Rails jobportal: test" uuid="d26c91d6-40d9-4e19-a392-96287be5da6b">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:E:\RailsProject\jobportal\db\test.sqlite3</jdbc-url>
+      <libraries />
+    </data-source>
   </component>
 </project>
 
