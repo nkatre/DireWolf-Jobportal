@@ -41,3 +41,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 group :development do
   gem 'rails_layout'
 end
+
+
