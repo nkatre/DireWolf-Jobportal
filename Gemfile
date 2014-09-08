@@ -43,3 +43,8 @@ group :development do
 end
 
 
+group :assets do
+  gem 'twitter-bootstrap-rails'
+  gem 'less-rails'
+end
+

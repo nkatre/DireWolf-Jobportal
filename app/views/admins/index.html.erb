@@ -1,14 +1,15 @@
 <h1>Listing admins</h1>
 
-<table>
-  <thead>
+
+<div class="bs-example">
+  <table class="table table-bordered">
+    <thead>
     <tr>
       <th>Name</th>
       <th>Email</th>
       <th>Password</th>
-      <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
   <tbody>
     <% @admins.each do |admin| %>
@@ -23,6 +24,7 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 
