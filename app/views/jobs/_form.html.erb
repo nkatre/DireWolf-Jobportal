@@ -1,0 +1,54 @@
+<%= form_for(@job) do |f| %>
+  <% if @job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+      <% @job.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :job_id %><br>
+    <%= f.text_field :job_id %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="form-group">
+    <%= f.label :tag1 %><br>
+    <%= f.select :tag1, options_for_select(%w[Internship Full-Time Part-Time Co-Op Contractor]) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :tag2 %><br>
+    <%= f.select :tag2, options_for_select(%w[Work-From-Home Office]) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :tag3 %><br>
+    <%= f.select :tag3, options_for_select(%w[US-Citizen Non-US-Citizen]) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :category %><br>
+    <%= f.select :tag3, options_for_select(%w[Computer-Science Electrical Mechanical Industrial Biology]) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :deadline %><br>
+    <%= f.date_select :deadline %>
+  </div>
+  <!--<div class="form-group">
+    <%= f.label :employer_id %><br>
+    <%= f.number_field :employer_id %>
+  </div>-->
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

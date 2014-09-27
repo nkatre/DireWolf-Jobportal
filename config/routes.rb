@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
-  get 'employer/register'
-
-  get 'employer/list'
-
+  resources :jobs
   root :to => "home#index"
-
   resources :admins
 
   # The priority is based upon order of creation: first created -> highest priority.

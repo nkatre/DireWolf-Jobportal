@@ -42,10 +42,11 @@ group :development do
   gem 'rails_layout'
 end
 
-
 group :assets do
   gem 'twitter-bootstrap-rails'
   gem 'less-rails'
 # Command to use the bootstrap gem from terminal is : rails g bootstrap:themed admins -f
 end
+
+gem 'protected_attributes'
 
