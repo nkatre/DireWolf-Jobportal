@@ -1,0 +1,46 @@
+<%- model_class = Jobseeker -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:password) %></th>
+      <th><%= model_class.human_attribute_name(:phone) %></th>
+      <th><%= model_class.human_attribute_name(:skills) %></th>
+      <th><%= model_class.human_attribute_name(:resume) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobseekers.each do |jobseeker| %>
+      <tr>
+        <td><%= link_to jobseeker.id, jobseeker_path(jobseeker) %></td>
+        <td><%= jobseeker.name %></td>
+        <td><%= jobseeker.email %></td>
+        <td><%= jobseeker.password %></td>
+        <td><%= jobseeker.phone %></td>
+        <td><%= jobseeker.skills %></td>
+        <td><%= jobseeker.resume %></td>
+        <td><%=l jobseeker.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_jobseeker_path(jobseeker), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      jobseeker_path(jobseeker),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_jobseeker_path,
+            :class => 'btn btn-primary' %>
