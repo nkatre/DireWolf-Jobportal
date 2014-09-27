@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
-  get 'employer/register'
+  resources :jobapplications
 
-  get 'employer/list'
+  resources :jobseekers
 
+  resources :employers
+
+  resources :jobs
   root :to => "home#index"
-
   resources :admins
-
+  get 'login'=>'home#login'
+  post 'login_check'=> 'home#login_check'
+=begin
+  get 'invalid_credential'=> 'home#invalid_credentails'
+=end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

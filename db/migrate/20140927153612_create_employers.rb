@@ -5,7 +5,7 @@ class CreateEmployers < ActiveRecord::Migration
       t.string :contact_name
       t.string :email
       t.string :password
-      t.text :summary
+      t.integer :admin_id
 
       t.timestamps
     end

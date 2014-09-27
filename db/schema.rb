@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908085634) do
+ActiveRecord::Schema.define(version: 20140927191704) do
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -26,7 +26,41 @@ ActiveRecord::Schema.define(version: 20140908085634) do
     t.string   "contact_name"
     t.string   "email"
     t.string   "password"
-    t.text     "summary"
+    t.integer  "admin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "jobapplications", force: true do |t|
+    t.integer  "job_id"
+    t.integer  "jobseeker_id"
+    t.text     "coverletter"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "jobs", force: true do |t|
+    t.string   "job_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "tag1"
+    t.string   "tag2"
+    t.string   "tag3"
+    t.string   "category"
+    t.date     "deadline"
+    t.integer  "employer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "jobseekers", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password"
+    t.string   "phone"
+    t.string   "skills"
+    t.text     "resume"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

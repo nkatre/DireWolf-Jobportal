@@ -24,6 +24,8 @@ class AdminsController < ApplicationController
   # POST /admins
   # POST /admins.json
   def create
+    # render plain: admin_params
+    # return
     @admin = Admin.new(admin_params)
 
     respond_to do |format|
@@ -62,13 +64,13 @@ class AdminsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_admin
-      @admin = Admin.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_admin
+    @admin = Admin.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def admin_params
-      params.require(:admin).permit(:name, :email, :password)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def admin_params
+    params.require(:admin).permit(:name, :email, :password)
+  end
 end
