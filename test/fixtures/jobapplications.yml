@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  job_id: 1
+  jobseeker_id: 1
+  coverletter: MyText
+  status: MyString
+
+two:
+  job_id: 1
+  jobseeker_id: 1
+  coverletter: MyText
+  status: MyString
