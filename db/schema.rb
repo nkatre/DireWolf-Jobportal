@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20140927172817) do
+=======
 ActiveRecord::Schema.define(version: 20140927231920) do
+>>>>>>> v1.10
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -31,6 +35,10 @@ ActiveRecord::Schema.define(version: 20140927231920) do
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
+  create_table "jobs", force: true do |t|
+    t.string   "job_id"
+=======
   create_table "jobapplications", force: true do |t|
     t.integer  "job_id"
     t.integer  "jobseeker_id"
@@ -41,6 +49,7 @@ ActiveRecord::Schema.define(version: 20140927231920) do
   end
 
   create_table "jobs", force: true do |t|
+>>>>>>> v1.10
     t.string   "title"
     t.text     "description"
     t.string   "tag1"

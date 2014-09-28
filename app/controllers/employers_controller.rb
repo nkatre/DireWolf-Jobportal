@@ -15,6 +15,8 @@ class EmployersController < ApplicationController
   # GET /employers/new
   def new
     @employer = Employer.new
+<<<<<<< HEAD
+=======
     if((cookies[:adminID]=="")||(cookies[:adminID].is_a?NilClass))
       @custom_error = "Please login !"
       render "layouts/error"
@@ -22,6 +24,7 @@ class EmployersController < ApplicationController
     end
     @admin = Admin.find(cookies[:adminID].to_i)
     @employer.admin_id=@admin.id
+>>>>>>> v1.10
   end
 
   # GET /employers/1/edit

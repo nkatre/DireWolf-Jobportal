@@ -15,7 +15,10 @@ class JobseekersController < ApplicationController
   # GET /jobseekers/new
   def new
     @jobseeker = Jobseeker.new
+<<<<<<< HEAD
+=======
 
+>>>>>>> v1.10
   end
 
   # GET /jobseekers/1/edit

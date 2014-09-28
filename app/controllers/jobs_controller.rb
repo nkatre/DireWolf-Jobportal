@@ -15,6 +15,12 @@ class JobsController < ApplicationController
   # GET /jobs/new
   def new
     @job = Job.new
+<<<<<<< HEAD
+  end
+
+  # GET /jobs/1/edit
+  def edit
+=======
     if((cookies[:employerID]=="")||(cookies[:employerID].is_a?NilClass))
       @custom_error = "Please login !"
       render "layouts/error"
@@ -51,6 +57,7 @@ class JobsController < ApplicationController
       render "layouts/error"
       return
     end
+>>>>>>> v1.10
   end
 
   # POST /jobs
@@ -86,11 +93,14 @@ class JobsController < ApplicationController
   # DELETE /jobs/1
   # DELETE /jobs/1.json
   def destroy
+<<<<<<< HEAD
+=======
     if((cookies[:employerID]=="")||(cookies[:employerID].is_a?NilClass))
       @custom_error = "Only employers can delete the jobs!"
       render "layouts/error"
       return
       end
+>>>>>>> v1.10
     @job.destroy
     respond_to do |format|
       format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
