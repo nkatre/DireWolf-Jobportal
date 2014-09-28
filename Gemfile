@@ -48,5 +48,8 @@ group :assets do
 # Command to use the bootstrap gem from terminal is : rails g bootstrap:themed admins -f
 end
 
+<<<<<<< HEAD
 gem 'protected_attributes'
+=======
+>>>>>>> v1.10
 

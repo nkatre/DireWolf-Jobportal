@@ -1,43 +1,41 @@
-<%- model_class = Admin -%>
+<%- model_class = Jobapplication -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:email) %></th>
+
+      <th><%= model_class.human_attribute_name(:job_id) %></th>
+      <th><%= model_class.human_attribute_name(:jobseeker_id) %></th>
+      <th><%= model_class.human_attribute_name(:coverletter) %></th>
+      <th><%= model_class.human_attribute_name(:status) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
-    <% @admins.each do |admin| %>
+    <% @jobapplications.each do |jobapplication| %>
       <tr>
-        <td><%= link_to admin.id, admin_path(admin) %></td>
-        <td><%= admin.name %></td>
-        <td><%= admin.email %></td>
-        <td><%=l admin.created_at %></td>
+        <td><%= Job.find(jobapplication.job_id).title %></td>
+        <td><%= Jobseeker.find(jobapplication.jobseeker_id).name %></td>
+        <td><%= jobapplication.coverletter %></td>
+        <td><%= jobapplication.status %></td>
+        <td><%=l jobapplication.created_at %></td>
         <td>
-          <% if(admin.email!="admin@admin.com") %>
-
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_admin_path(admin), :class => 'btn btn-default btn-xs' %>
+                      edit_jobapplication_path(jobapplication), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      admin_path(admin),
+                      jobapplication_path(jobapplication),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' %>
-          <%end%>
-              </td>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_admin_path,
+            new_jobapplication_path,
             :class => 'btn btn-primary' %>
-
-<%= link_to "Create Employer",new_employer_path, :class => 'btn btn-primary'%>

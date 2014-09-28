@@ -15,10 +15,49 @@ class JobsController < ApplicationController
   # GET /jobs/new
   def new
     @job = Job.new
+<<<<<<< HEAD
   end
 
   # GET /jobs/1/edit
   def edit
+=======
+    if((cookies[:employerID]=="")||(cookies[:employerID].is_a?NilClass))
+      @custom_error = "Please login !"
+      render "layouts/error"
+      return
+    end
+    @employer = Employer.find(cookies[:employerID].to_i)
+    @job.employer_id=@employer.id
+  end
+
+  def search
+    @jobs=[]
+    @searchStr = params[:search]
+    if(@searchStr=="")
+      @jobs = Job.all
+    elsif
+    @searchStr.split.each do |word|
+      Job.find_each do |job|
+        if(( (job.title =~ /#{"(.*)"+word+"(.*)"}/i) == 0) ||((job.description =~ /#{"(.*)"+word+"(.*)"}/i) == 0) ||
+        ((job.tag1 =~ /#{"(.*)"+word+"(.*)"}/i) == 0) ||((job.tag2 =~ /#{"(.*)"+word+"(.*)"}/i) == 0) ||((job.tag3 =~ /#{"(.*)"+word+"(.*)"}/i) == 0)||
+        ((job.category =~ /#{"(.*)"+word+"(.*)"}/i) == 0))
+                    @jobs << job
+        end
+      end
+    end
+    end
+    render :index
+  end
+
+
+  # GET /jobs/1/edit
+  def edit
+    if((cookies[:employerID]=="")||(cookies[:employerID].is_a?NilClass))
+      @custom_error = "Only employers can edit the jobs!"
+      render "layouts/error"
+      return
+    end
+>>>>>>> v1.10
   end
 
   # POST /jobs
@@ -54,6 +93,14 @@ class JobsController < ApplicationController
   # DELETE /jobs/1
   # DELETE /jobs/1.json
   def destroy
+<<<<<<< HEAD
+=======
+    if((cookies[:employerID]=="")||(cookies[:employerID].is_a?NilClass))
+      @custom_error = "Only employers can delete the jobs!"
+      render "layouts/error"
+      return
+      end
+>>>>>>> v1.10
     @job.destroy
     respond_to do |format|
       format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }

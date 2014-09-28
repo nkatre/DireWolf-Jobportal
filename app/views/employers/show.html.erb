@@ -25,3 +25,9 @@
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
+<<<<<<< HEAD
+=======
+<% if((cookies[:employerID]!="") && (!cookies[:employerID].is_a?NilClass)) %>
+    <%= link_to "Create Jobs",new_job_path, :class => 'btn btn-primary'%>
+<% end %>
+>>>>>>> v1.10

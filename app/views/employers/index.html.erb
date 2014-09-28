@@ -9,7 +9,11 @@
       <th><%= model_class.human_attribute_name(:company_name) %></th>
       <th><%= model_class.human_attribute_name(:contact_name) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
+<<<<<<< HEAD
       <th><%= model_class.human_attribute_name(:password) %></th>
+=======
+
+>>>>>>> v1.10
       <th><%= model_class.human_attribute_name(:admin_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -22,8 +26,13 @@
         <td><%= employer.company_name %></td>
         <td><%= employer.contact_name %></td>
         <td><%= employer.email %></td>
+<<<<<<< HEAD
         <td><%= employer.password %></td>
         <td><%= employer.admin_id %></td>
+=======
+
+       <td><%= Admin.find(employer.admin_id).name %></td>
+>>>>>>> v1.10
         <td><%=l employer.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -42,3 +51,7 @@
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_employer_path,
             :class => 'btn btn-primary' %>
+<<<<<<< HEAD
+=======
+<%= link_to "Create Jobs",new_job_path, :class => 'btn btn-primary'%>
+>>>>>>> v1.10
