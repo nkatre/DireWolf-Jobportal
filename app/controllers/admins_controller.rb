@@ -19,6 +19,11 @@ class AdminsController < ApplicationController
 
   # GET /admins/1/edit
   def edit
+    if(@admin.email=="admin@admin.com")
+      @custom_error = "Action Not Allowed !   This is a super-admin"
+      render "layouts/error"
+      return
+      end
   end
 
   # POST /admins
@@ -43,7 +48,8 @@ class AdminsController < ApplicationController
   # PATCH/PUT /admins/1.json
   def update
     if(@admin.email=="admin@admin.com")
-      render "layouts/action_not_allowed"
+      @custom_error = "Action Not Allowed !   This is a super-admin"
+      render "layouts/error"
       return
     end
     respond_to do |format|
@@ -61,7 +67,8 @@ class AdminsController < ApplicationController
   # DELETE /admins/1.json
   def destroy
     if(@admin.email=="admin@admin.com")
-      render "layouts/action_not_allowed"
+      @custom_error = "Action Not Allowed !   This is a super-admin"
+      render "layouts/error"
       return
     end
     @admin.destroy
@@ -70,6 +77,8 @@ class AdminsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 
   private
   # Use callbacks to share common setup or constraints between actions.

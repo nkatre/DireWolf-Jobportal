@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :jobapplications
 
   resources :jobseekers
@@ -13,9 +14,8 @@ Rails.application.routes.draw do
   get 'logout' => 'home#logout'
   get 'jobapplication_lists'=>'jobapplications#list_applications'
   get '/search'=> 'jobs#search'
-=begin
-  get 'invalid_credential'=> 'home#invalid_credentails'
-=end
+  match '*a', :to => 'errors#routing', via: :get
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

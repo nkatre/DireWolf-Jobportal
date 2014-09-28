@@ -27,6 +27,9 @@ class JobsController < ApplicationController
   def search
     @jobs=[]
     @searchStr = params[:search]
+    if(@searchStr=="")
+      @jobs = Job.all
+    elsif
     @searchStr.split.each do |word|
       Job.find_each do |job|
         if(( (job.title =~ /#{"(.*)"+word+"(.*)"}/i) == 0) ||((job.description =~ /#{"(.*)"+word+"(.*)"}/i) == 0) ||
@@ -36,13 +39,18 @@ class JobsController < ApplicationController
         end
       end
     end
+    end
     render :index
-
   end
 
 
   # GET /jobs/1/edit
   def edit
+    if((cookies[:employerID]=="")||(cookies[:employerID].is_a?NilClass))
+      @custom_error = "Only employers can edit the jobs!"
+      render "layouts/error"
+      return
+    end
   end
 
   # POST /jobs

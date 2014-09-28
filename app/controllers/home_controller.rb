@@ -12,11 +12,7 @@ class HomeController < ApplicationController
     cookies[:jobseekerID]=""
     redirect_to :back
   end
-=begin
-  def invalid_credentials
-    render "layouts/invalid_credentials", :layout => true
-  end
-=end
+
   def login_check
 
     @email=params[:login_email]
@@ -28,7 +24,8 @@ class HomeController < ApplicationController
     if(@title=='Admin')
       @admin=Admin.find_by_email(@email)
       if(@admin.is_a?NilClass)
-        render "layouts/invalid_credentials", :layout => true
+        @custom_error = "Invalid Login Credentials"
+        render "layouts/error"
         return
       else
         if(@admin.password==@password)
@@ -36,7 +33,8 @@ class HomeController < ApplicationController
           redirect_to @admin, :layout => true
           return
         else
-          render "layouts/invalid_credentials", :layout => true
+          @custom_error = "Invalid Login Credentials"
+          render "layouts/error"
           return
         end
       end
@@ -45,7 +43,8 @@ class HomeController < ApplicationController
     elsif(@title=='Jobseeker')
       @jobseeker=Jobseeker.find_by_email(@email)
       if(@jobseeker.is_a?NilClass)
-        render "layouts/invalid_credentials", :layout => true
+        @custom_error = "Invalid Login Credentials"
+        render "layouts/error"
         return
       else
         if(@jobseeker.password==@password)
@@ -53,7 +52,8 @@ class HomeController < ApplicationController
           redirect_to @jobseeker, :layout => true
           return
         else
-          render "layouts/invalid_credentials", :layout => true
+          @custom_error = "Invalid Login Credentials"
+          render "layouts/error"
           return
         end
       end
@@ -61,7 +61,8 @@ class HomeController < ApplicationController
     elsif (@title=='Employer')
       @employer=Employer.find_by_email(@email)
       if(@employer.is_a?NilClass)
-        render "layouts/invalid_credentials", :layout => true
+        @custom_error = "Invalid Login Credentials"
+        render "layouts/error"
         return
       else
         if(@employer.password==@password)
@@ -69,7 +70,8 @@ class HomeController < ApplicationController
           redirect_to @employer, :layout => true
           return
         else
-          render "layouts/invalid_credentials", :layout => true
+          @custom_error = "Invalid Login Credentials"
+          render "layouts/error"
           return
         end
       end
