@@ -5,7 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+
       <th><%= model_class.human_attribute_name(:job_id) %></th>
       <th><%= model_class.human_attribute_name(:jobseeker_id) %></th>
       <th><%= model_class.human_attribute_name(:coverletter) %></th>
@@ -17,9 +17,8 @@
   <tbody>
     <% @jobapplications.each do |jobapplication| %>
       <tr>
-        <td><%= link_to jobapplication.id, jobapplication_path(jobapplication) %></td>
-        <td><%= jobapplication.job_id %></td>
-        <td><%= jobapplication.jobseeker_id %></td>
+        <td><%= Job.find(jobapplication.job_id).title %></td>
+        <td><%= Jobseeker.find(jobapplication.jobseeker_id).name %></td>
         <td><%= jobapplication.coverletter %></td>
         <td><%= jobapplication.status %></td>
         <td><%=l jobapplication.created_at %></td>

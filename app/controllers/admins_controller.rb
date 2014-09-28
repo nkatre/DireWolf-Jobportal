@@ -42,6 +42,10 @@ class AdminsController < ApplicationController
   # PATCH/PUT /admins/1
   # PATCH/PUT /admins/1.json
   def update
+    if(@admin.email=="admin@admin.com")
+      render "layouts/action_not_allowed"
+      return
+    end
     respond_to do |format|
       if @admin.update(admin_params)
         format.html { redirect_to @admin, notice: 'Admin was successfully updated.' }
@@ -56,6 +60,10 @@ class AdminsController < ApplicationController
   # DELETE /admins/1
   # DELETE /admins/1.json
   def destroy
+    if(@admin.email=="admin@admin.com")
+      render "layouts/action_not_allowed"
+      return
+    end
     @admin.destroy
     respond_to do |format|
       format.html { redirect_to admins_url, notice: 'Admin was successfully destroyed.' }

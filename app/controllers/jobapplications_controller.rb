@@ -7,6 +7,11 @@ class JobapplicationsController < ApplicationController
     @jobapplications = Jobapplication.all
   end
 
+  def list_applications
+    @jobapplications = Jobapplication.where(:job_id=>params[:job_id]).to_a
+    render 'index'
+  end
+
   # GET /jobapplications/1
   # GET /jobapplications/1.json
   def show
@@ -14,7 +19,17 @@ class JobapplicationsController < ApplicationController
 
   # GET /jobapplications/new
   def new
+
     @jobapplication = Jobapplication.new
+    @jobapplication.job_id=params[:job_id].to_i
+    if((cookies[:jobseekerID]=="")||(cookies[:jobseekerID].is_a?NilClass))
+      @custom_error = "Please login !"
+      render "layouts/error"
+      return
+    end
+    @jobseeker= Jobseeker.find(cookies[:jobseekerID].to_i)
+    @jobapplication.jobseeker_id=@jobseeker.id
+    @jobapplication.status="Pending"
   end
 
   # GET /jobapplications/1/edit

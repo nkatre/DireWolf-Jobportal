@@ -15,31 +15,37 @@
     </div>
   <% end %>
 
-  <div class="control-group">
-    <%= f.label :job_id, :class => 'control-label' %>
+<!--  <div class="control-group">
+    <%# f.label :job_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :job_id, :class => 'form-control' %>
+      <%# f.text_field :job_id, :class => 'form-control' %>
     </div>
-    <%= error_span(@jobapplication[:job_id]) %>
+    <%# error_span(@jobapplication[:job_id]) %>
   </div>
   <div class="control-group">
-    <%= f.label :jobseeker_id, :class => 'control-label' %>
+    <%# f.label :jobseeker_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :jobseeker_id, :class => 'form-control' %>
+      <%# f.text_field :jobseeker_id, :class => 'form-control' %>
     </div>
-    <%= error_span(@jobapplication[:jobseeker_id]) %>
-  </div>
+    <%# error_span(@jobapplication[:jobseeker_id]) %>
+  </div>-->
   <div class="control-group">
     <%= f.label :coverletter, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :coverletter, :class => 'form-control' %>
+      <%= f.text_area :coverletter, :class => 'form-control' %>
     </div>
     <%= error_span(@jobapplication[:coverletter]) %>
   </div>
   <div class="control-group">
-    <%= f.label :status, :class => 'control-label' %>
+ <!--   <%# f.label :status, :class => 'control-label' %>-->
     <div class="controls">
-      <%= f.text_field :status, :class => 'form-control' %>
+      <%= f.hidden_field :status %>
+    </div>
+    <div class="controls">
+      <%= f.hidden_field :job_id %>
+    </div>
+    <div class="controls">
+      <%= f.hidden_field :jobseeker_id%>
     </div>
     <%= error_span(@jobapplication[:status]) %>
   </div>

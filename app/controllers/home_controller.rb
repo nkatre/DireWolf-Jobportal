@@ -5,6 +5,13 @@ class HomeController < ApplicationController
   def login
     render "layouts/login", :layout => true
   end
+
+  def logout
+    cookies[:adminID]=""
+    cookies[:employerID]=""
+    cookies[:jobseekerID]=""
+    redirect_to :back
+  end
 =begin
   def invalid_credentials
     render "layouts/invalid_credentials", :layout => true
@@ -42,7 +49,7 @@ class HomeController < ApplicationController
         return
       else
         if(@jobseeker.password==@password)
-          cookies[:@jobseekerID] = @jobseeker.id
+          cookies[:jobseekerID] = @jobseeker.id
           redirect_to @jobseeker, :layout => true
           return
         else
@@ -58,7 +65,7 @@ class HomeController < ApplicationController
         return
       else
         if(@employer.password==@password)
-          cookies[:@employerID] = @employer.id
+          cookies[:employerID] = @employer.id
           redirect_to @employer, :layout => true
           return
         else

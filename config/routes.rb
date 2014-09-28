@@ -6,10 +6,13 @@ Rails.application.routes.draw do
   resources :employers
 
   resources :jobs
-  root :to => "home#index"
+  root :to => 'jobs#index'
   resources :admins
   get 'login'=>'home#login'
   post 'login_check'=> 'home#login_check'
+  get 'logout' => 'home#logout'
+  get 'jobapplication_lists'=>'jobapplications#list_applications'
+  get '/search'=> 'jobs#search'
 =begin
   get 'invalid_credential'=> 'home#invalid_credentails'
 =end

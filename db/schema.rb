@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140927191704) do
+ActiveRecord::Schema.define(version: 20140927231920) do
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 20140927191704) do
   end
 
   create_table "jobs", force: true do |t|
-    t.string   "job_id"
     t.string   "title"
     t.text     "description"
     t.string   "tag1"

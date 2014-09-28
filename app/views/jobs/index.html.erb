@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:job_id) %></th>
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:tag1) %></th>
@@ -23,7 +22,6 @@
     <% @jobs.each do |job| %>
       <tr>
         <td><%= link_to job.id, job_path(job) %></td>
-        <td><%= job.job_id %></td>
         <td><%= job.title %></td>
         <td><%= job.description %></td>
         <td><%= job.tag1 %></td>
@@ -34,6 +32,8 @@
         <td><%= job.employer_id %></td>
         <td><%=l job.created_at %></td>
         <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      job_path(job), :class => 'btn btn-default' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_job_path(job), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

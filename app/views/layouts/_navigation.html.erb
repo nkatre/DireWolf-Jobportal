@@ -29,13 +29,22 @@
           </ul>
         </li>
       </ul>
-      <form role="search" class="navbar-form navbar-left">
+      <form role="search" class="navbar-form navbar-left" action="/search">
         <div class="form-group">
-          <input type="text" placeholder="Search" class="form-control">
+          <input type="text" placeholder="Search" class="form-control" name="search">
+          <input type="submit" value="Search" class="btn btn-primary">
         </div>
       </form>
       <ul class="nav navbar-nav navbar-right">
+        <% if(
+        ((cookies[:adminID]=="") || (cookies[:adminID].is_a?NilClass))&&
+         (       (cookies[:employerID]=="")||( cookies[:employerID].is_a?NilClass))&&
+                ((cookies[:jobseekerID]=="")|| (cookies[:jobseekerID].is_a?NilClass))
+        )%>
         <li><%= link_to 'Login',login_path %></li>
+        <% else %>
+             <li><%= link_to 'Logout',logout_path %></li>
+        <% end %>
       </ul>
     </div>
   </nav>

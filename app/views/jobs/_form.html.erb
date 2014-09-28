@@ -16,13 +16,6 @@
   <% end %>
 
   <div class="control-group">
-    <%= f.label :job_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :job_id, :class => 'form-control' %>
-    </div>
-    <%= error_span(@job[:job_id]) %>
-  </div>
-  <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :title, :class => 'form-control' %>
@@ -60,7 +53,7 @@
   <div class="control-group">
     <%= f.label :category, :class => 'control-label' %>
     <div class="controls">
-      <%= f.select :tag3, options_for_select(%w[Computer-Science Electrical Mechanical Industrial Biology]) %>
+      <%= f.select :category, options_for_select(%w[Computer-Science Electrical Mechanical Industrial Biology]) %>
     </div>
     <%= error_span(@job[:category]) %>
   </div>
@@ -80,6 +73,7 @@
   </div>
 
 -->
+   <%= f.hidden_field :employer_id  %>
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
             jobs_path, :class => 'btn btn-default' %>
