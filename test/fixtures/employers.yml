@@ -5,11 +5,11 @@ one:
   contact_name: MyString
   email: MyString
   password: MyString
-  admin_id: 1
+  summary: MyText
 
 two:
   company_name: MyString
   contact_name: MyString
   email: MyString
   password: MyString
-  admin_id: 1
+  summary: MyText

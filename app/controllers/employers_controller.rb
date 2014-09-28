@@ -15,20 +15,22 @@ class EmployersController < ApplicationController
   # GET /employers/new
   def new
     @employer = Employer.new
-<<<<<<< HEAD
-=======
     if((cookies[:adminID]=="")||(cookies[:adminID].is_a?NilClass))
-      @custom_error = "Please login !"
+      @custom_error = "Insufficient Rights. Please login as admin!"
       render "layouts/error"
       return
     end
     @admin = Admin.find(cookies[:adminID].to_i)
     @employer.admin_id=@admin.id
->>>>>>> v1.10
   end
 
   # GET /employers/1/edit
   def edit
+    if((cookies[:adminID]=="")||(cookies[:adminID].is_a?NilClass))
+      @custom_error = "Insufficient Rights.Please login as admin!"
+      render "layouts/error"
+      return
+    end
   end
 
   # POST /employers
@@ -64,6 +66,11 @@ class EmployersController < ApplicationController
   # DELETE /employers/1
   # DELETE /employers/1.json
   def destroy
+    if((cookies[:adminID]=="")||(cookies[:adminID].is_a?NilClass))
+      @custom_error = "Insufficient Rights.Please login as admin!"
+      render "layouts/error"
+      return
+    end
     @employer.destroy
     respond_to do |format|
       format.html { redirect_to employers_url, notice: 'Employer was successfully destroyed.' }

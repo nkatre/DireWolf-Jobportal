@@ -8,13 +8,8 @@
        <center> <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
              alt=""></center>
         <form class="form-signin" method="post" action="login_check">
-<<<<<<< HEAD
-          <input type="text" name="login_email" class="form-control" placeholder="Email" required autofocus>
-          <input type="password" name="login_password" class="form-control" placeholder="Password" required>
-=======
           Email<input type="text" name="login_email" class="form-control" placeholder="Email" required autofocus>
           Password<input type="password" name="login_password" class="form-control" placeholder="Password" required>
->>>>>>> v1.10
           <div class="form_row">
             <label for="theme">Title :</label>
             <% [ 'Admin', 'Jobseeker', 'Employer' ].each do |theme| %>
@@ -22,10 +17,7 @@
                 <%= theme.humanize %>
             <% end %>
           </div>
-<<<<<<< HEAD
-=======
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
->>>>>>> v1.10
           <button class="btn btn-lg btn-primary btn-block" type="submit">
             Sign in</button>
           <label class="checkbox pull-left">
@@ -33,14 +25,10 @@
             Remember me
           </label>
           <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
+
         </form>
       </div>
-<<<<<<< HEAD
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
-        Create Account</button>
-=======
       <%= link_to 'Create Account', new_jobseeker_path, {:class => "btn btn-lg btn-primary btn-block"} %>
->>>>>>> v1.10
 
     </div>
   </div>

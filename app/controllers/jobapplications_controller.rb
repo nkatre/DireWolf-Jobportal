@@ -23,7 +23,7 @@ class JobapplicationsController < ApplicationController
     @jobapplication = Jobapplication.new
     @jobapplication.job_id=params[:job_id].to_i
     if((cookies[:jobseekerID]=="")||(cookies[:jobseekerID].is_a?NilClass))
-      @custom_error = "Please login !"
+      @custom_error = "Please login as Jobseeker !"
       render "layouts/error"
       return
     end
@@ -34,6 +34,11 @@ class JobapplicationsController < ApplicationController
 
   # GET /jobapplications/1/edit
   def edit
+    if((cookies[:jobseekerID]=="")||(cookies[:jobseekerID].is_a?NilClass))
+      @custom_error = "Please login as Jobseeker !"
+      render "layouts/error"
+      return
+    end
   end
 
   # POST /jobapplications
@@ -69,6 +74,11 @@ class JobapplicationsController < ApplicationController
   # DELETE /jobapplications/1
   # DELETE /jobapplications/1.json
   def destroy
+    if((cookies[:jobseekerID]=="")||(cookies[:jobseekerID].is_a?NilClass))
+      @custom_error = "Please login as Jobseeker !"
+      render "layouts/error"
+      return
+    end
     @jobapplication.destroy
     respond_to do |format|
       format.html { redirect_to jobapplications_url, notice: 'Jobapplication was successfully destroyed.' }

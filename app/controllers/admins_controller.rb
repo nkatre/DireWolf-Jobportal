@@ -31,14 +31,8 @@ class AdminsController < ApplicationController
   def create
     # render plain: admin_params
     # return
-<<<<<<< HEAD
-    @admin = Admin.new(params[:admin])
-    render plain: @admin.password
-    return
-=======
     @admin = Admin.new(admin_params)
 
->>>>>>> v1.10
     respond_to do |format|
       if @admin.save
         format.html { redirect_to @admin, notice: 'Admin was successfully created.' }
