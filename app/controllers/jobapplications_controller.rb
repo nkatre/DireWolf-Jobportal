@@ -11,6 +11,13 @@ class JobapplicationsController < ApplicationController
     @jobapplications = Jobapplication.where(:job_id=>params[:job_id]).to_a
     render 'index'
   end
+  def list_apps
+    @jobapplications = []
+    Job.where(:employer_id => params[:employer_id].to_i).to_a.each do|job|
+      @jobapplications += Jobapplication.where(:job_id => job.id).to_a
+    end
+    render :index
+  end
 
   # GET /jobapplications/1
   # GET /jobapplications/1.json

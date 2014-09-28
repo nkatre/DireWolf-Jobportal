@@ -129,4 +129,8 @@ class JobsController < ApplicationController
     def job_params
       params.require(:job).permit(:job_id, :title, :description, :tag1, :tag2, :tag3, :category_name, :deadline, :employer_id)
     end
+
+  def error_span(attribute)
+    @template.content_tag :span, errors_for(attribute), class: 'help-inline'
+  end
 end
