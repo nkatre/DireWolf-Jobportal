@@ -49,7 +49,7 @@ DireWolf Job Portal helps students find jobs.
  -       c) 'View Recommended Jobs' button will show only those job applications which matches with the tags of the jobs to which he has previously applied, also it excludes all those jobs to which he has previously applied. If the job-seeker has not previously applied for any job then the recommended jobs will be empty.
 
 
-->>>>>>>>>>>>>>>>>>>>------LIST OF THINGS TO IMPLEMENT------>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<------LIST OF THINGS TO IMPLEMENT------>>>>>>>>>>>>>>>>>>
 
 -  E-mails to be sent, to both the Employers and Job seekers
 -  Functional Tests - Cucumber Testing
