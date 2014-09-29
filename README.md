@@ -3,11 +3,11 @@ jobportal
 
 DireWolf Job Portal helps students find jobs.
 
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<---------URL-------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<---------URL-------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 - Project Live On -> http://152.46.16.220:3000
 - Project Git Repository Link ->  https://github.ncsu.edu/nkatre/jobportal
 
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<---------USERS---------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<<--------USERS---------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 - Super Admin (This admin cannot be destroyed) 
   - Username : admin@admin.com Password : admin
 
@@ -22,7 +22,7 @@ DireWolf Job Portal helps students find jobs.
   - Username : jobseeker@jobseeker.com Password : jobseeker
  
 
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<---------NAVIGATION------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<---------NAVIGATION------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 - 1) HOME -> Redirects to the home-page
 - 2) PROFILE -> This button will be inactive for users who are not logged in.
@@ -49,7 +49,7 @@ DireWolf Job Portal helps students find jobs.
  -       c) 'View Recommended Jobs' button will show only those job applications which matches with the tags of the jobs to which he has previously applied, also it excludes all those jobs to which he has previously applied. If the job-seeker has not previously applied for any job then the recommended jobs will be empty.
 
 
-->>>>>>>>>>>>>>>>>>>>>>>>>>>>-------LIST OF THINGS TO IMPLEMENT------>>>>>>>>>>>>>>>>>>>>>>>
+->>>>>>>>>>>>>>>>>>>>------LIST OF THINGS TO IMPLEMENT------>>>>>>>>>>>>>>>>>>
 
 -  E-mails to be sent, to both the Employers and Job seekers
 -  Functional Tests - Cucumber Testing
