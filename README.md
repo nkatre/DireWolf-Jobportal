@@ -33,7 +33,6 @@ DireWolf Job Portal helps students find jobs.
 - 4) LOGIN/LOGOUT -> Redirects to login page and logs out already logged in user.
 
 *********** The following operations can be performed by each user: **********
-
 - 1) Not-logged-in : Can view all the jobs listed on Direwolf
 - 2) Admin(logged-in)
  -       a) Can see his profile by clicking on 'Profile' navigation tab listed on black navigation bar on the web page.
@@ -50,7 +49,7 @@ DireWolf Job Portal helps students find jobs.
  -       c) 'View Recommended Jobs' button will show only those job applications which matches with the tags of the jobs to which he has previously applied, also it excludes all those jobs to which he has previously applied. If the job-seeker has not previously applied for any job then the recommended jobs will be empty.
 
 
-->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>-------LIST OF THINGS TO IMPLEMENT------>>>>>>>>>>>>>>>>>>>>
+->>>>>>>>>>>>>>>>>>>>>>>>>>>>-------LIST OF THINGS TO IMPLEMENT------>>>>>>>>>>>>>>>>>>>>>>>
 
 -  E-mails to be sent, to both the Employers and Job seekers
 -  Functional Tests - Cucumber Testing
