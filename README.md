@@ -13,14 +13,14 @@ DireWolf Job Portal helps students find jobs.
    Username : admin@admin.com Password : admin
 
 - Other Admins - Few sample admins defined in the system are:
-** Username : nkatre@ncsu.edu Password : nkatre **
-** Username : gshah@ncsu.edu Password : gshah **
+Username : nkatre@ncsu.edu Password : nkatre 
+Username : gshah@ncsu.edu Password : gshah 
 
 - Employers can be created only by the admins. A sample employer defined in the system is:
-** Username : employer@employer.com Password : employer **
+Username : employer@employer.com Password : employer 
 
 - Job Seekers can be created using the sign-up option which appears while login. A sample jobseeker defined in the system is:
-** Username : jobseeker@jobseeker.com Password : jobseeker **
+ Username : jobseeker@jobseeker.com Password : jobseeker
 
 
 <<<<<<<<<<<<<<<<<<----------NAVIGATION------------>>>>>>>>>>>>>>
