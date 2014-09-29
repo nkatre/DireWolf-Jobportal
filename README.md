@@ -3,11 +3,11 @@ jobportal
 
 DireWolf Job Portal helps students find jobs.
 
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<---------URL-------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<--------URL-------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 - Project Live On -> http://152.46.16.220:3000
 - Project Git Repository Link ->  https://github.ncsu.edu/nkatre/jobportal
 
-<<<<<<<<<<<<<<<<<<<<<<<<<<--------USERS---------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<--------USERS---------->>>>>>>>>>>>>>>>>>>>>>>>>>>>
 - Super Admin (This admin cannot be destroyed) 
   - Username : admin@admin.com Password : admin
 
@@ -22,7 +22,7 @@ DireWolf Job Portal helps students find jobs.
   - Username : jobseeker@jobseeker.com Password : jobseeker
  
 
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<---------NAVIGATION------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<---------NAVIGATION------->>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 - 1) HOME -> Redirects to the home-page
 - 2) PROFILE -> This button will be inactive for users who are not logged in.
