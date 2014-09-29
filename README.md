@@ -9,7 +9,7 @@ DireWolf Job Portal helps students find jobs.
 
 <<<<<<<<<<<<<<<<<<-----------USERS----------->>>>>>>>>>>>>>
 
-- Super Admin (This admin cannot be destroyed)
+- Super Admin (This admin cannot be destroyed) -
 ** Username : admin@admin.com Password : admin **
 
 - Other Admins - Few sample admins defined in the system are:
