@@ -36,18 +36,18 @@ Username : employer@employer.com Password : employer
 * The following operations can be performed by each user: *
 - 1) Not-logged-in -> Can view all the jobs listed on Direwolf
 - 2) Admin(logged-in) ->
-        a) Can see his profile by clicking on 'Profile' navigation tab listed on black navigation bar on the web page.
-        b) 'Create Job Category' button will allow him/her to create job categories
-        c) 'Create Employer' button will allow him/her to create Employers
-        d) 'Create Other Admins' will allow him/her to create other Admins
+ -       a) Can see his profile by clicking on 'Profile' navigation tab listed on black navigation bar on the web page.
+ -       b) 'Create Job Category' button will allow him/her to create job categories
+ -       c) 'Create Employer' button will allow him/her to create Employers
+ -       d) 'Create Other Admins' will allow him/her to create other Admins
 - 3) Employer(logged-in) ->
-        a) Can see his profile by clicking on 'Profile' navigation tab listed on black navigation bar on the web page.
-        b) 'Create Jobs' button will allow to create any new job
-        c)  'View Job Applications' button will allow him/her to view all the job applications to the jobs created by him
+ -       a) Can see his profile by clicking on 'Profile' navigation tab listed on black navigation bar on the web page.
+ -       b) 'Create Jobs' button will allow to create any new job
+ -       c)  'View Job Applications' button will allow him/her to view all the job applications to the jobs created by him
 - 4) Jobseeker(logged-in) ->
-        a) Can see his profile by clicking on 'Profile' navigation tab listed on black navigation bar on the web page.
-        b) 'View Jobs' button will view all the job applications (even to the jobs to which he has previously applied). Apply to the job applications by clicking the 'Show' button in Actions.
-        c) 'View Recommended Jobs' button will show only those job applications which matches with the tags of the jobs to which he has previously applied, also it excludes all those jobs to which he has previously applied.
+ -       a) Can see his profile by clicking on 'Profile' navigation tab listed on black navigation bar on the web page.
+ -       b) 'View Jobs' button will view all the job applications (even to the jobs to which he has previously applied). Apply to the job applications by clicking the 'Show' button in Actions.
+ -       c) 'View Recommended Jobs' button will show only those job applications which matches with the tags of the jobs to which he has previously applied, also it excludes all those jobs to which he has previously applied.
             If the job-seeker has not previously applied for any job then the recommended jobs will be empty.
 
 
