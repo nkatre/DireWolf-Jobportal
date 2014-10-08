@@ -29,4 +29,5 @@
 <% elsif((cookies[:employerID]!="") && (!cookies[:employerID].is_a?NilClass)) %>
     <%= link_to "Create Jobs",new_job_path, :class => 'btn btn-primary'%>
     <%= link_to "View Job Applications", jobapps_path(:employer_id=>@employer.id) , :class => 'btn btn-primary'%>
+    <%= link_to "Change Job Status", jobapps_path(:employer_id => @employer.id) , :class => 'btn btn-primary' %>
 <% end %>

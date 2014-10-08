@@ -71,6 +71,18 @@ class EmployersController < ApplicationController
       render "layouts/error"
       return
     end
+=begin
+    @allJobs = Job.find.all.each do |thisJob|
+      Jobapplication.find_each do |app|
+        Jobapplication.delete(app) if app.job_id == thisJob.job_id
+      end
+    end
+=end
+=begin
+    Job.find_each do |job|
+      Job.delete(job) if job.employer_id == @employer.id
+    end
+=end
     @employer.destroy
     respond_to do |format|
       format.html { redirect_to employers_url, notice: 'Employer was successfully destroyed.' }

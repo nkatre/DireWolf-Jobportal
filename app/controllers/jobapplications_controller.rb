@@ -7,10 +7,18 @@ class JobapplicationsController < ApplicationController
     @jobapplications = Jobapplication.all
   end
 
+=begin
+   def change_status
+   @jobapplication_id =  params[:format].to_i
+   end
+=end
+
+
   def list_applications
     @jobapplications = Jobapplication.where(:job_id=>params[:job_id]).to_a
     render 'index'
   end
+
   def list_apps
     @jobapplications = []
     Job.where(:employer_id => params[:employer_id].to_i).to_a.each do|job|
@@ -26,7 +34,6 @@ class JobapplicationsController < ApplicationController
 
   # GET /jobapplications/new
   def new
-
     @jobapplication = Jobapplication.new
     @jobapplication.job_id=params[:job_id].to_i
     if((cookies[:jobseekerID]=="")||(cookies[:jobseekerID].is_a?NilClass))
@@ -41,11 +48,12 @@ class JobapplicationsController < ApplicationController
 
   # GET /jobapplications/1/edit
   def edit
-    if((cookies[:jobseekerID]=="")||(cookies[:jobseekerID].is_a?NilClass))
+    if((cookies[:adminID]!="") && !(cookies[:adminID].is_a?NilClass))
       @custom_error = "Please login as Jobseeker !"
       render "layouts/error"
       return
     end
+
   end
 
   # POST /jobapplications
