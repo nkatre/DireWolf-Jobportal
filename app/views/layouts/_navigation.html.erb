@@ -17,7 +17,15 @@
     <div id="navbarCollapse" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li class="active"><%= link_to 'Home',root_path %></li>
-        <li><a href="#">Profile</a></li>
+        <li>
+          <% if(((cookies[:adminID]!="") && (!cookies[:adminID].is_a?NilClass))) %>
+              <%= link_to "Profile", admin_path(cookies[:adminID].to_i) %>
+              <% elsif(((cookies[:employerID]!="") && (!cookies[:employerID].is_a?NilClass))) %>
+                  <%= link_to "Profile", employer_path(cookies[:employerID].to_i) %>
+          <% elsif(((cookies[:jobseekerID]!="") && (!cookies[:jobseekerID].is_a?NilClass))) %>
+              <%= link_to "Profile", jobseeker_path(cookies[:jobseekerID].to_i) %>
+          <% end %>
+        </li>
         <li class="dropdown">
           <a data-toggle="dropdown" class="dropdown-toggle" href="#">Messages <b class="caret"></b></a>
           <ul role="menu" class="dropdown-menu">

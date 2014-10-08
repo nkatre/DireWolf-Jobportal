@@ -24,4 +24,6 @@
 <%= link_to "Create Other Admins",new_admin_path, :class => 'btn btn-primary'%>
 <% if((cookies[:adminID]!="") && (!cookies[:adminID].is_a?NilClass)) %>
     <%= link_to "Create Employer",new_employer_path, :class => 'btn btn-primary'%>
+    <%= link_to "Delete Employer",delete_employer_path, :class => 'btn btn-primary'%>
+    <%= link_to "Create Category",new_category_path, :class => 'btn btn-primary'%>
 <% end %>

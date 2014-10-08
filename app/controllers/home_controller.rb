@@ -24,7 +24,7 @@ class HomeController < ApplicationController
     if(@title=='Admin')
       @admin=Admin.find_by_email(@email)
       if(@admin.is_a?NilClass)
-        @custom_error = "Invalid Login Credentials"
+        @custom_error = "Invalid Login Credentials. The username is invalid or the account does not exist."
         render "layouts/error"
         return
       else
@@ -43,7 +43,7 @@ class HomeController < ApplicationController
     elsif(@title=='Jobseeker')
       @jobseeker=Jobseeker.find_by_email(@email)
       if(@jobseeker.is_a?NilClass)
-        @custom_error = "Invalid Login Credentials"
+        @custom_error = "Invalid Login Credentials. The username is invalid or the account does not exist."
         render "layouts/error"
         return
       else
@@ -61,7 +61,7 @@ class HomeController < ApplicationController
     elsif (@title=='Employer')
       @employer=Employer.find_by_email(@email)
       if(@employer.is_a?NilClass)
-        @custom_error = "Invalid Login Credentials"
+        @custom_error = "Invalid Login Credentials. The username is invalid or the account does not exist."
         render "layouts/error"
         return
       else

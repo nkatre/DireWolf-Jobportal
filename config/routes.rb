@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :fields
+
+  resources :categories
+
   resources :jobapplications
 
   resources :jobseekers
@@ -14,6 +18,9 @@ Rails.application.routes.draw do
   get 'logout' => 'home#logout'
   get 'jobapplication_lists'=>'jobapplications#list_applications'
   get '/search'=> 'jobs#search'
+  get 'recommended' => 'jobs#recommendation'
+  get 'jobapps'=> 'jobapplications#list_apps'
+  get 'delete_employer' => 'employers#delete_employer'
   match '*a', :to => 'errors#routing', via: :get
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -6,7 +6,7 @@
         <h3 class="panel-title"><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h3>
       </div>
       <div class="panel-body">
-        <ul>
+      <ul>
         <% @job.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
@@ -20,56 +20,56 @@
     <div class="controls">
       <%= f.text_field :title, :class => 'form-control' %>
     </div>
-    <%= error_span(@job[:title]) %>
+   <!-- <%# error_span(@job[:title]) %>-->
   </div>
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_area :description, :class => 'form-control' %>
     </div>
-    <%= error_span(@job[:description]) %>
+ <!--   <%# error_span(@job[:description]) %>-->
   </div>
   <div class="control-group">
     <%= f.label :tag1, :class => 'control-label' %>
     <div class="controls">
       <%=  f.select :tag1, options_for_select(%w[Internship Full-Time Part-Time Co-Op Contractor]) %>
     </div>
-    <%= error_span(@job[:tag1]) %>
+  <!--  <%# error_span(@job[:tag1]) %>-->
   </div>
   <div class="control-group">
     <%= f.label :tag2, :class => 'control-label' %>
     <div class="controls">
       <%= f.select :tag2, options_for_select(%w[Work-From-Home Office]) %>
     </div>
-    <%= error_span(@job[:tag2]) %>
+  <!--  <%# error_span(@job[:tag2]) %>-->
   </div>
   <div class="control-group">
     <%= f.label :tag3, :class => 'control-label' %>
     <div class="controls">
       <%= f.select :tag3, options_for_select(%w[US-Citizen Non-US-Citizen]) %>
     </div>
-    <%= error_span(@job[:tag3]) %>
+  <!--  <%# error_span(@job[:tag3]) %>-->
   </div>
   <div class="control-group">
     <%= f.label :category, :class => 'control-label' %>
     <div class="controls">
-      <%= f.select :category, options_for_select(%w[Computer-Science Electrical Mechanical Industrial Biology]) %>
+      <%= f.select :category_name, Category.all.collect{ |c| [c.name, c.id]} %>
     </div>
-    <%= error_span(@job[:category]) %>
+   <!-- <%# error_span(@job[:category_name]) %>-->
   </div>
   <div class="control-group">
     <%= f.label :deadline, :class => 'control-label' %>
     <div class="controls">
       <%= f.date_select :deadline, :class => 'form-control' %>
     </div>
-    <%= error_span(@job[:deadline]) %>
+<!--    <%# error_span(@job[:deadline]) %>-->
   </div>
  <!-- <div class="control-group">
     <%= f.label :employer_id, :class => 'control-label' %>
     <div class="controls">
       <%= f.number_field :employer_id, :class => 'form-control' %>
     </div>
-    <%= error_span(@job[:employer_id]) %>
+    <%# error_span(@job[:employer_id]) %>
   </div>
 
 -->

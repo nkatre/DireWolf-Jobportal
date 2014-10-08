@@ -32,8 +32,8 @@
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
-<% if((cookies[:jobseekerID]!="") && (!cookies[:jobseekerID].is_a?NilClass)) %>
+<%# if((cookies[:jobseekerID]!="") && (!cookies[:jobseekerID].is_a?NilClass)) %>
 <%= link_to "Apply to Job", new_jobapplication_path(:job_id=>@job.id) , :class => 'btn btn-primary'%>
-<% elsif ((cookies[:employerID]!="") && (!cookies[:employerID].is_a?NilClass)) %>
+<% if ((cookies[:employerID]!="") && (!cookies[:employerID].is_a?NilClass)) %>
 <%= link_to "View Job Applications", jobapplication_lists_path(:job_id=>@job.id) , :class => 'btn btn-primary'%>
 <% end %>
