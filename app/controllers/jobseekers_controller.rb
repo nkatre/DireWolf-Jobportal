@@ -3,6 +3,8 @@ class JobseekersController < ApplicationController
 
   # GET /jobseekers
   # GET /jobseekers.json
+
+
   def index
     @jobseekers = Jobseeker.all
   end

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source source="LOCAL" name="Rails jobportal: development" uuid="2a88805e-46cb-4e28-87ea-b0be46ba8d1d">
+  <data-source source="LOCAL" name="Rails jobportal: development" uuid="25adff64-d3ff-4384-81a9-d231b589b09c">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
 </component>
