@@ -23,7 +23,7 @@
         <td><%= jobapplication.status %></td>
         <td><%= l jobapplication.created_at %></td>
         <td>
-          <% if((cookies[:employerID]!="") || !(cookies[:employerID].is_a?NilClass)) %>
+          <% if((cookies[:jobseekerID]=="") || (cookies[:jobseekerID].is_a?NilClass)) %>
           <%= link_to t('.change status'), edit_jobapplication_path(jobapplication), :class => 'btn btn-default btn-xs' %>
           <% end %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -39,6 +39,6 @@
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
+<%#link_to t('.new', :default => t("helpers.links.new")),
             new_jobapplication_path,
             :class => 'btn btn-primary' %>

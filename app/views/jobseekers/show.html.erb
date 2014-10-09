@@ -18,8 +18,9 @@
   <dd><%= @jobseeker.resume %></dd>
 </dl>
 
-<%= link_to t('.back', :default => t("helpers.links.back")),
+<%# link_to t('.back', :default => t("helpers.links.back")),
               jobseekers_path, :class => 'btn btn-default'  %>
+<% if((cookies[:jobseekerID]!="") && (!cookies[:jobseekerID].is_a?NilClass)) %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_jobseeker_path(@jobseeker), :class => 'btn btn-default' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -27,7 +28,7 @@
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
-<%# if((cookies[:jobseekerID]!="") && (!cookies[:jobseekerID].is_a?NilClass)) %>
 <%= link_to "View Jobs",root_path, :class => 'btn btn-primary'%>
 <%= link_to "View Recommended Jobs",recommended_path, :class => 'btn btn-primary'%>
-<%#end%>
+<%= link_to "View My Applications",view_my_applications_path, :class => 'btn btn-primary'%>
+<% end %>

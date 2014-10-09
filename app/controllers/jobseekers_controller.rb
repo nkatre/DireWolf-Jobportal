@@ -12,6 +12,17 @@ class JobseekersController < ApplicationController
   def show
   end
 
+  def view_my_applications
+    @jobapplications = Jobapplication.where(:jobseeker_id => cookies[:jobseekerID])
+    if(@jobapplications.count==0)
+      @custom_notification = "You have not applied to any job OR You have deleted all your previous job applications"
+      render "layouts/notifications"
+      return
+    elsif (@jobapplications.count!=0)
+      render 'jobapplications/index'
+    end
+  end
+
   # GET /jobseekers/new
   def new
     @jobseeker = Jobseeker.new
@@ -20,6 +31,11 @@ class JobseekersController < ApplicationController
 
   # GET /jobseekers/1/edit
   def edit
+    if((@jobseeker.email=="jobs.direwolf.eeker@gmail.com"))
+      @custom_error = "Action Not Allowed ! This is a SYSTEM DEFINED Jobseeker. Please create sample Jobseeker and perform this action"
+      render "layouts/error"
+      return
+    end
   end
 
   # POST /jobseekers
@@ -29,6 +45,7 @@ class JobseekersController < ApplicationController
 
     respond_to do |format|
       if @jobseeker.save
+        UserNotifier.send_signup_email(@jobseeker).deliver
         format.html { redirect_to @jobseeker, notice: 'Jobseeker was successfully created.' }
         format.json { render :show, status: :created, location: @jobseeker }
       else
@@ -41,6 +58,11 @@ class JobseekersController < ApplicationController
   # PATCH/PUT /jobseekers/1
   # PATCH/PUT /jobseekers/1.json
   def update
+    if((@jobseeker.email=="jobs.direwolf.eeker@gmail.com"))
+      @custom_error = "Action Not Allowed ! This is a SYSTEM DEFINED Jobseeker. Please create sample Jobseeker and perform this action"
+      render "layouts/error"
+      return
+    end
     respond_to do |format|
       if @jobseeker.update(jobseeker_params)
         format.html { redirect_to @jobseeker, notice: 'Jobseeker was successfully updated.' }
@@ -55,9 +77,14 @@ class JobseekersController < ApplicationController
   # DELETE /jobseekers/1
   # DELETE /jobseekers/1.json
   def destroy
+    if((@jobseeker.email=="jobs.direwolf.eeker@gmail.com"))
+      @custom_error = "Action Not Allowed ! This is a SYSTEM DEFINED Jobseeker. Please create sample Jobseeker and perform this action"
+      render "layouts/error"
+      return
+    end
     @jobseeker.destroy
     respond_to do |format|
-      format.html { redirect_to jobseekers_url, notice: 'Jobseeker was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Jobseeker was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

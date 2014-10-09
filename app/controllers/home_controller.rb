@@ -10,7 +10,9 @@ class HomeController < ApplicationController
     cookies[:adminID]=""
     cookies[:employerID]=""
     cookies[:jobseekerID]=""
-    redirect_to :back
+    @notification = "Logout Successful !"
+    render "layouts/logout_successful"
+    return
   end
 
   def login_check

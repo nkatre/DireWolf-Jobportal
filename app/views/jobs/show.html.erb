@@ -23,8 +23,10 @@
   <dd><%= @job.employer_id %></dd>
 </dl>
 
-<%= link_to t('.back', :default => t("helpers.links.back")),
+<%# link_to t('.back', :default => t("helpers.links.back")),
               jobs_path, :class => 'btn btn-default'  %>
+
+<% if((cookies[:employerID]!="") && (!cookies[:employerID].is_a?NilClass)) %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_job_path(@job), :class => 'btn btn-default' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -32,8 +34,9 @@
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
-<%# if((cookies[:jobseekerID]!="") && (!cookies[:jobseekerID].is_a?NilClass)) %>
+<% end %>
 <%= link_to "Apply to Job", new_jobapplication_path(:job_id=>@job.id) , :class => 'btn btn-primary'%>
+
 <% if ((cookies[:employerID]!="") && (!cookies[:employerID].is_a?NilClass)) %>
 <%= link_to "View Job Applications", jobapplication_lists_path(:job_id=>@job.id) , :class => 'btn btn-primary'%>
 <% end %>

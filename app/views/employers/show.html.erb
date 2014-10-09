@@ -16,7 +16,7 @@
   <dd><%= @employer.admin_id %></dd>
 </dl>
 
-<%= link_to t('.back', :default => t("helpers.links.back")),
+<%# link_to t('.back', :default => t("helpers.links.back")),
               employers_path, :class => 'btn btn-default'  %>
 <% if((cookies[:adminID]!="") && !(cookies[:adminID].is_a?NilClass)) %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -29,5 +29,5 @@
 <% elsif((cookies[:employerID]!="") && (!cookies[:employerID].is_a?NilClass)) %>
     <%= link_to "Create Jobs",new_job_path, :class => 'btn btn-primary'%>
     <%= link_to "View Job Applications", jobapps_path(:employer_id=>@employer.id) , :class => 'btn btn-primary'%>
-    <%= link_to "Change Job Status", jobapps_path(:employer_id => @employer.id) , :class => 'btn btn-primary' %>
+    <%= link_to "Change Job Application Status", jobapps_path(:employer_id => @employer.id) , :class => 'btn btn-primary' %>
 <% end %>

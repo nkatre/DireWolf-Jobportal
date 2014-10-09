@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   get '/search'=> 'jobs#search'
   get 'recommended' => 'jobs#recommendation'
   get 'jobapps'=> 'jobapplications#list_apps'
-  get 'delete_employer' => 'employers#delete_employer'
+  get 'delete_employer' => 'employers#list_employer'
+  get 'view_my_applications' => 'jobseekers#view_my_applications'
   match '*a', :to => 'errors#routing', via: :get
 
   # The priority is based upon order of creation: first created -> highest priority.

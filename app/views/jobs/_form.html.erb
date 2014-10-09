@@ -39,14 +39,14 @@
   <div class="control-group">
     <%= f.label :tag2, :class => 'control-label' %>
     <div class="controls">
-      <%= f.select :tag2, options_for_select(%w[Work-From-Home Office]) %>
+      <%= f.select :tag2, options_for_select(%w[Office Freelance Work-From-Home]) %>
     </div>
   <!--  <%# error_span(@job[:tag2]) %>-->
   </div>
   <div class="control-group">
     <%= f.label :tag3, :class => 'control-label' %>
     <div class="controls">
-      <%= f.select :tag3, options_for_select(%w[US-Citizen Non-US-Citizen]) %>
+      <%= f.select :tag3, options_for_select(%w[All American-Indian Asian White/Caucasian African-American Hispanic/Latino Native-Hawaiian Other-Pacific-Islander]) %>
     </div>
   <!--  <%# error_span(@job[:tag3]) %>-->
   </div>

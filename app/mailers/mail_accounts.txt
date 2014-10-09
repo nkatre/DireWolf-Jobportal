@@ -1,0 +1,15 @@
+1) System Application
+   UN: system.direwolf@gmail.com
+   PW: "ENCRYPTED_HERE"
+
+2) Admin Direwolf
+   UN: ad.direwolf.min@gmail.com
+   PW: adminnkatre
+
+3) Employer Direwolf
+   UN: empl.direwolf.oyer@gmail.com
+   PW: employernkatre
+
+4) Jobseeker Direwolf
+   UN: jobs.direwolf.eeker@gmail.com
+   PW: jobseekernkatre

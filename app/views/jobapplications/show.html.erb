@@ -14,7 +14,7 @@
   <dd><%= @jobapplication.status %></dd>
 </dl>
 
-<%= link_to t('.back', :default => t("helpers.links.back")),
+<%# link_to t('.back', :default => t("helpers.links.back")),
             jobapplications_path, :class => 'btn btn-default' %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
             edit_jobapplication_path(@jobapplication), :class => 'btn btn-default' %>

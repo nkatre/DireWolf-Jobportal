@@ -12,6 +12,11 @@ class EmployersController < ApplicationController
   def show
   end
 
+  def list_employer
+       @employers = Employer.where(:admin_id => cookies[:adminID].to_i).to_a
+       render :index
+  end
+
   # GET /employers/new
   def new
     @employer = Employer.new
@@ -26,6 +31,11 @@ class EmployersController < ApplicationController
 
   # GET /employers/1/edit
   def edit
+    if((@employer.email=="empl.direwolf.oyer@gmail.com"))
+      @custom_error = "Action Not Allowed ! This is a SYSTEM DEFINED Employer. Please create sample Employer and perform this action"
+      render "layouts/error"
+      return
+    end
     if((cookies[:adminID]=="")||(cookies[:adminID].is_a?NilClass))
       @custom_error = "Insufficient Rights.Please login as admin!"
       render "layouts/error"
@@ -40,6 +50,7 @@ class EmployersController < ApplicationController
 
     respond_to do |format|
       if @employer.save
+        UserNotifier.send_signup_email(@employer).deliver
         format.html { redirect_to @employer, notice: 'Employer was successfully created.' }
         format.json { render :show, status: :created, location: @employer }
       else
@@ -52,6 +63,11 @@ class EmployersController < ApplicationController
   # PATCH/PUT /employers/1
   # PATCH/PUT /employers/1.json
   def update
+    if((@employer.email=="empl.direwolf.oyer@gmail.com"))
+      @custom_error = "Action Not Allowed ! This is a SYSTEM DEFINED Employer. Please create sample Employer and perform this action"
+      render "layouts/error"
+      return
+    end
     respond_to do |format|
       if @employer.update(employer_params)
         format.html { redirect_to @employer, notice: 'Employer was successfully updated.' }
@@ -66,26 +82,25 @@ class EmployersController < ApplicationController
   # DELETE /employers/1
   # DELETE /employers/1.json
   def destroy
+    if((@employer.email=="empl.direwolf.oyer@gmail.com"))
+      @custom_error = "Action Not Allowed ! This is a SYSTEM DEFINED Employer. Please create sample Employer and perform this action"
+      render "layouts/error"
+      return
+    end
     if((cookies[:adminID]=="")||(cookies[:adminID].is_a?NilClass))
       @custom_error = "Insufficient Rights.Please login as admin!"
       render "layouts/error"
       return
     end
-=begin
-    @allJobs = Job.find.all.each do |thisJob|
-      Jobapplication.find_each do |app|
-        Jobapplication.delete(app) if app.job_id == thisJob.job_id
+    Job.where(:employer_id => @employer.id).to_a.each do |job|
+      Jobapplication.where(:job_id => job.id).to_a.each do |jobapp|
+        Jobapplication.delete(jobapp.id)
       end
+      Job.delete(job.id)
     end
-=end
-=begin
-    Job.find_each do |job|
-      Job.delete(job) if job.employer_id == @employer.id
-    end
-=end
     @employer.destroy
     respond_to do |format|
-      format.html { redirect_to employers_url, notice: 'Employer was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Employer was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

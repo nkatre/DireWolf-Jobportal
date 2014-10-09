@@ -7,12 +7,6 @@ class JobapplicationsController < ApplicationController
     @jobapplications = Jobapplication.all
   end
 
-=begin
-   def change_status
-   @jobapplication_id =  params[:format].to_i
-   end
-=end
-
 
   def list_applications
     @jobapplications = Jobapplication.where(:job_id=>params[:job_id]).to_a
@@ -24,7 +18,13 @@ class JobapplicationsController < ApplicationController
     Job.where(:employer_id => params[:employer_id].to_i).to_a.each do|job|
       @jobapplications += Jobapplication.where(:job_id => job.id).to_a
     end
-    render :index
+    if(@jobapplications.count==0)
+      @custom_notification = "No job application to show"
+      render "layouts/notifications"
+      return
+    elsif (@jobapplications.count!=0)
+      render :index
+    end
   end
 
   # GET /jobapplications/1
@@ -63,6 +63,10 @@ class JobapplicationsController < ApplicationController
 
     respond_to do |format|
       if @jobapplication.save
+        @foundjob = Job.find(@jobapplication.job_id)
+        @foundemployerid = @foundjob.employer_id.to_i
+        @foundemployer = Employer.find(@foundemployerid)
+        UserNotifier.jobapplication_submitted_email(@foundemployer).deliver
         format.html { redirect_to @jobapplication, notice: 'Jobapplication was successfully created.' }
         format.json { render :show, status: :created, location: @jobapplication }
       else
@@ -77,6 +81,10 @@ class JobapplicationsController < ApplicationController
   def update
     respond_to do |format|
       if @jobapplication.update(jobapplication_params)
+        if((cookies[:employerID]!="") && (!cookies[:employerID].is_a?NilClass))
+           @foundjobseeker = Jobseeker.find(@jobapplication.jobseeker_id)
+           UserNotifier.jobapplication_status_update_email(@foundjobseeker).deliver
+        end
         format.html { redirect_to @jobapplication, notice: 'Jobapplication was successfully updated.' }
         format.json { render :show, status: :ok, location: @jobapplication }
       else
@@ -96,7 +104,7 @@ class JobapplicationsController < ApplicationController
     end
     @jobapplication.destroy
     respond_to do |format|
-      format.html { redirect_to jobapplications_url, notice: 'Jobapplication was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Jobapplication was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

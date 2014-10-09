@@ -5,6 +5,11 @@ class JobsController < ApplicationController
   # GET /jobs.json
   def index
     @jobs = Job.all
+    if(@jobs.count==0)
+      @custom_notification = "No jobs to show"
+      render "layouts/notifications"
+      return
+    end
   end
 
   # GET /jobs/1
@@ -34,8 +39,18 @@ class JobsController < ApplicationController
       @jobs.delete job
     end
     @jobs.uniq!
-    render :index
+    if(@jobs.count==0)
+      @custom_notification = "No recommended jobs to show SINCE
+      you have not applied to any job previously OR
+      you have deleted all your previous job applications.
+      Recommended jobs are found, by matching tags(tag1, tag2, tag3) of the job with your job applications."
+      render "layouts/notifications"
+      return
+    elsif (@jobs.count!=0)
+      render :index
+    end
   end
+
 
   def search
     @jobs=[]
@@ -45,7 +60,7 @@ class JobsController < ApplicationController
     elsif
     @searchStr.split.each do |word|
       Job.find_each do |job|
-        if(( (job.title =~ /#{"(.*)"+word+"(.*)"}/i) == 0) ||((job.description =~ /#{"(.*)"+word+"(.*)"}/i) == 0) ||
+        if(( (job.title =~ /#{"(.*)"+word+"(.*)"}/i) == 0) ||
         ((job.tag1 =~ /#{"(.*)"+word+"(.*)"}/i) == 0) ||((job.tag2 =~ /#{"(.*)"+word+"(.*)"}/i) == 0) ||((job.tag3 =~ /#{"(.*)"+word+"(.*)"}/i) == 0)||
         ((job.category =~ /#{"(.*)"+word+"(.*)"}/i) == 0))
                     @jobs << job
@@ -54,7 +69,13 @@ class JobsController < ApplicationController
     end
     end
     @jobs.uniq!
-    render :index
+    if(@jobs.count==0)
+      @custom_notification = "No such job found"
+      render "layouts/notifications"
+      return
+    elsif (@jobs.count!=0)
+      render :index
+    end
   end
 
 
@@ -114,7 +135,7 @@ class JobsController < ApplicationController
     end
     @job.destroy
     respond_to do |format|
-      format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Job was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
