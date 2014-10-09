@@ -39,7 +39,7 @@
     <div class="control-group">
       <%= f.label :status, :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_field :status, :class => 'form-control' %>
+        <%= f.text_field :status, :required=>true, :class => 'form-control' %>
       </div>
       <%# error_span(@jobapplication[:coverletter]) %>
     </div>

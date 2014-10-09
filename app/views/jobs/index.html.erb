@@ -14,7 +14,9 @@
       <th><%= model_class.human_attribute_name(:category) %></th>
       <th><%= model_class.human_attribute_name(:deadline) %></th>
       <th><%= model_class.human_attribute_name(:employer_id) %></th>
+      <% if((cookies[:employerID]!="") && (!cookies[:employerID].is_a?NilClass)) %>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
@@ -51,8 +53,8 @@
     <% end %>
   </tbody>
 </table>
-<% if((cookies[:employerID]!="") && (!cookies[:employerID].is_a?NilClass)) %>
-<%= link_to t('.new', :default => t("helpers.links.new")),
+
+<%# link_to t('.new', :default => t("helpers.links.new")),
             new_job_path,
             :class => 'btn btn-primary' %>
-<% end %>
+
