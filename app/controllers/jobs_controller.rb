@@ -40,17 +40,12 @@ class JobsController < ApplicationController
     end
     @jobs.uniq!
     if(@jobs.count==0)
-      @custom_notification = "No recommended jobs to show SINCE
-      you have not applied to any job previously OR
-      you have deleted all your previous job applications.
-      Recommended jobs are found, by matching tags(tag1, tag2, tag3) of the job with your job applications."
-      render "layouts/notifications"
+      render 'layouts/no_recommended_jobs'
       return
     elsif (@jobs.count!=0)
       render :index
     end
   end
-
 
   def search
     @jobs=[]
@@ -135,7 +130,7 @@ class JobsController < ApplicationController
     end
     @job.destroy
     respond_to do |format|
-      format.html { redirect_to :back, notice: 'Job was successfully destroyed.' }
+      format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

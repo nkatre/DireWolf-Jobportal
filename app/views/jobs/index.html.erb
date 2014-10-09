@@ -51,7 +51,8 @@
     <% end %>
   </tbody>
 </table>
-
+<% if((cookies[:employerID]!="") && (!cookies[:employerID].is_a?NilClass)) %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_job_path,
             :class => 'btn btn-primary' %>
+<% end %>

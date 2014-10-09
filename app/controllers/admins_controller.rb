@@ -16,11 +16,21 @@ class AdminsController < ApplicationController
 
   # GET /admins/new
   def new
+    if((cookies[:adminID]=="") || (cookies[:adminID].is_a?NilClass))
+      @custom_error = "Please login as admin to create new admin"
+      render "layouts/error"
+      return
+    end
     @admin = Admin.new
   end
 
   # GET /admins/1/edit
   def edit
+    if((cookies[:adminID]=="") || (cookies[:adminID].is_a?NilClass))
+      @custom_error = "Insufficient Rights.Please login as admin!"
+      render "layouts/error"
+      return
+    end
     if((@admin.email=="ad.direwolf.min@gmail.com"))
       @custom_error = "Action Not Allowed !   This is a super-admin. Please create sample Admin and perform this action"
       render "layouts/error"
@@ -33,6 +43,7 @@ class AdminsController < ApplicationController
   def create
     # render plain: admin_params
     # return
+
     @admin = Admin.new(admin_params)
 
     respond_to do |format|
@@ -76,7 +87,7 @@ class AdminsController < ApplicationController
     end
     @admin.destroy
     respond_to do |format|
-      format.html { redirect_to :back, notice: 'Admin was successfully destroyed.' }
+      format.html { redirect_to admins_url, notice: 'Admin was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

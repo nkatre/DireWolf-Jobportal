@@ -28,7 +28,7 @@
           <% end %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_jobapplication_path(jobapplication), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+          <%# link_to t('.destroy', :default => t("helpers.links.destroy")),
                       jobapplication_path(jobapplication),
                       :method => :delete,
                       :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))},

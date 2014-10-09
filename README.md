@@ -1,7 +1,7 @@
 DireWolf JobPortal
 =========
 
-DireWolf Job Portal helps students find jobs.
+DireWolf JobPortal helps students find jobs.
 
 <<<<<<<<<<<<<<<<<<<<<<--------URL-------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 - Project Live On -> http://152.46.16.220:3000
@@ -23,15 +23,14 @@ DireWolf Job Portal helps students find jobs.
     - Employer: empl.direwolf.oyer@gmail.com
     - Jobseeker: jobs.direwolf.eeker@gmail.com
 
+- Only Admins can delete Employers created by him/her.
+
+- Only Employers can create and delete the jobs. Admins can neither create jobs nor delete jobs
 
 <<<<<<<<<<<<<<<<<<<<--------USERS---------->>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 - Super Admin (This admin cannot be destroyed) 
   - Username : ad.direwolf.min@gmail.com Password : adminnkatre (NOTE -> This is a SYSTEM DEFINED admin, it cannot be destroyed)
-
-- Other Admins - Few sample admins defined in the system are:
-  - Username : nkatre@ncsu.edu Password : nkatre 
-  - Username : gshah@ncsu.edu Password : gshah
   - NOTE: Create sample admin with your valid email account(to check emails send by this application)
 
 - Employers can be created only by the admins. A sample employer defined in the system is:
@@ -72,9 +71,11 @@ DireWolf Job Portal helps students find jobs.
 
 - NOTE:
     - a) RECOMMENDED JOBS -> This search is based on the current job applications of the jobseeker. If the jobseeker has not applied to any job OR if the jobseeker
-    has deleted the previously applied job, then 'Recommended Jobs' would be NILL. Recommended Jobs is found by matching tags(Here tag1, tag2, and tag3) of the jobs with the previously applied jobs, that the jobsseker applied to.
+    has deleted the previously applied job, then 'Recommended Jobs' would be NILL. Recommended Jobs is found by matching tags(Here tag1, tag2, and tag3) of the jobs with the previously applied jobs, that the jobseeker applied to.
     - b) SEARCH -> This tool is used to search for jobs. If no string is entered, then by default it will show all the jobs. If some string is entered, then only those jobs would be returned, which have this string
     present either in their job title, tags(Here tag1, tag2, tag3) or category
+    - c) Only Admins can delete Employers created by him/her.
+    - d) Only Employers can create and delete the jobs. Admins can neither create jobs nor delete jobs
 <<<<<<<<<<<<<<<<<<------ BONUS ACTIONS IMPLEMENTED------>>>>>>>>>>>>>>>>>>
 -  Email Functionality
 -  Cucumber Testing

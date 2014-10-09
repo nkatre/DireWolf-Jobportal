@@ -84,7 +84,7 @@ class JobseekersController < ApplicationController
     end
     @jobseeker.destroy
     respond_to do |format|
-      format.html { redirect_to :back, notice: 'Jobseeker was successfully destroyed.' }
+      format.html { redirect_to jobseekers_url, notice: 'Jobseeker was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
