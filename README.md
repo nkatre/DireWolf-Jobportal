@@ -4,7 +4,7 @@ DireWolf JobPortal
 DireWolf JobPortal helps students find jobs.
 
 <<<<<<<<<<<<<<<<<<<<<<--------URL-------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-- Project Live On -> http://152.46.16.220:3000
+- Project Live On -> http://152.46.18.23:3000
 - Project Git Repository Link ->  https://github.ncsu.edu/nkatre/jobportal
 
 <<<<<<<<<<<<<<<<<<<<--------NOTE---------->>>>>>>>>>>>>>>>>>>>>>>>>>>>
